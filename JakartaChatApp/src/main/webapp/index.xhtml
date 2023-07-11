@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <ui:composition template="/WEB-INF/include/template.xhtml">
+    <ui:define name="head">
+        <title>Chatroom lobby</title>
+        <link rel="stylesheet" href="#{resource['css:chatapp.css']}" />
+    </ui:define>
+    <ui:define name="body">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-5 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                    <h2 class="fw-bold mb-0">Hey! What's your name?</h2>
+                </div>
+                <div class="modal-body p-5 pt-0">
+                    <h:form method="post">
+                        <div class="form-floating mb-3">
+                            <h:inputText type="text" styleClass="form-control rounded-4" name="name" id="floatingInput" placeholder="Name" required="true" requiredMessage="Name must not be empty" value="#{person.name}" />
+                            <h:outputLabel for="floatingInput">Name</h:outputLabel>
+                        </div>
+                        <h:message showSummary="true" showDetail="false" style="color: #d20005;" id="errors1" for="floatingInput"/>
+                        <h:commandButton action="chatroom.xhtml" styleClass="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit" value="Enter chatroom" />
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+  </ui:composition> 
+</html>
